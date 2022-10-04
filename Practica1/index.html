@@ -13,7 +13,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -40,38 +41,83 @@
                 <div class="navbar-nav ml-auto py-0 pr-3 border-right">
                     <a href="#" class="nav-item nav-link">UIB</a>
                     <a href="#" class="nav-item nav-link">Data Source</a>
-                <div class="d-none d-lg-flex align-items-center pl-4">
-                    <i class="fa fa-2x fa-mobile-alt text-primary mr-3"></i>
-                    <div>
-                        <h6 class="text-body text-uppercase mb-1"><small>Call Anytime</small></h6>
-                        <h6 class="m-0">+012 345 6789</h6>
+                    <div class="d-none d-lg-flex align-items-center pl-4">
+                        <i class="fa fa-2x fa-mobile-alt text-primary mr-3"></i>
+                        <div>
+                            <h6 class="text-body text-uppercase mb-1"><small>Call Anytime</small></h6>
+                            <h6 class="m-0">+012 345 6789</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
         </nav>
     </div>
     <!-- Navbar End -->
 
 
     <!-- Header Start -->
-     <div  class="container-fluid bg-primary py-5 px-0" style="margin-bottom: 90px;">
-        <div class="card card-header-actions h-100">
-         <div id='container1' class="graph"></div>
-        
-         <figure class="highcharts-figure">
-                <div id="container2"></div>
-            </figure>
-            <figure class="highcharts-figure">
-                <div id="container3"></div>
-            </figure>
-   <!-- </div> -->
+    <div class="container-fluid bg-primary py-5 px-0" style="margin-bottom: 90px;">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        PIE CHART
+                    </div>
+                    <div class="card-body">
+                        <div class="highcharts-figure">
+                            <div id='container1' class="graph"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        PIE CHART
+                    </div>
+                    <div class="card-body">
+                        <div class="highcharts-figure">
+                            <div id="container2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        PIE CHART
+                    </div>
+                    <div class="card-body">
+                        <div class="highcharts-figure">
+                            <div id="container3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--
+        <figure class="highcharts-figure">
+            <div id='container1' class="graph"></div>
+        </figure>
+
+        <figure class="highcharts-figure">
+            <div id="container2"></div>
+        </figure>
+
+        <figure class="highcharts-figure">
+            <div id="container3"></div>
+        </figure>
+ -->
 
     </div>
 
-    
-   
-   
-   <!--   <div class="container-fluid bg-primary py-5 px-0" style="margin-bottom: 90px;">
+
+
+
+    <!--   <div class="container-fluid bg-primary py-5 px-0" style="margin-bottom: 90px;">
         <div class="row mx-0 align-items-center">
             <div class="col-lg-6 px-md-5 text-center text-lg-left">
                 <h1 class="display-2 text-uppercase mb-3">Best Digital Marketing Agency</h1>
@@ -89,7 +135,7 @@
 
 
     <!-- About Start -->
-   <!-- <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -105,10 +151,10 @@
         </div>
     </div>-->
     <!-- About End -->
-    
+
 
     <!-- Services Start -->
-  <!--   <div class="container-fluid py-5">
+    <!--   <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Our Creative Services</h1>
             <div class="row">
@@ -233,7 +279,7 @@
 
 
     <!-- Pricing Plan Start -->
-  <!--   <div class="container-fluid py-5">
+    <!--   <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Competitive Pricing</h1>
             <div class="row">
@@ -307,7 +353,7 @@
 
 
     <!-- Team Start -->
-  <!--  <div class="container-fluid py-5">
+    <!--  <div class="container-fluid py-5">
         <div class="container py-5">
             <h1 class="display-4 text-uppercase text-center mb-5">Meet Our Team</h1>
             <div class="owl-carousel team-carousel position-relative" style="padding-left: 30px;">
@@ -417,7 +463,7 @@
 
 
     <!-- Contact Start -->
-   <!--  <div class="container-fluid py-5 px-0">
+    <!--  <div class="container-fluid py-5 px-0">
         <div class="row mt-5 mx-0">
             <div class="col-12 px-0" style="height: 500px;">
                 <div class="position-relative h-100">
@@ -494,18 +540,23 @@
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Home</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>About Us</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Our Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Pricing Plan</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Meet The Team</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Our
+                        Services</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Pricing
+                        Plan</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Meet The
+                        Team</a>
                     <a class="text-white-50" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Contact Us</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-uppercase text-white mb-4">Newsletter</h4>
-                <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
+                <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed
+                    kasd et</p>
                 <div class="w-100 mb-3">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                        <input type="text" class="form-control border-light" style="padding: 25px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary text-uppercase px-3">Sign Up</button>
                         </div>
@@ -535,7 +586,7 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-     <!-- para graficos -->
+    <!-- para graficos -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
