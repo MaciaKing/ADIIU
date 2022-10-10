@@ -1,4 +1,4 @@
-(function ($) {
+/*(function ($) {
     "use strict";
     
     // Dropdown on mouse hover
@@ -99,193 +99,205 @@
         }
     });
     
-})(jQuery);
+})(jQuery);*/
 
 //*** MACIA ***
-document.addEventListener('DOMContentLoaded', function () {
-    const chart = Highcharts.chart('container1', {
+
+function m(data) {
+    Highcharts.chart('container1', {
         chart: {
-            type: 'bar'
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Who has more money'
         },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
-    });
-});
-
-
-// Data retrieved from https://netmarketshare.com
-Highcharts.chart('container2', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Browser market shares in May, 2020'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Chrome',
-            y: 70.67,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Edge',
-            y: 14.77
-        },  {
-            name: 'Firefox',
-            y: 4.86
-        }, {
-            name: 'Safari',
-            y: 2.63
-        }, {
-            name: 'Internet Explorer',
-            y: 1.53
-        },  {
-            name: 'Opera',
-            y: 1.40
-        }, {
-            name: 'Sogou Explorer',
-            y: 0.84
-        }, {
-            name: 'QQ',
-            y: 0.51
-        }, {
-            name: 'Other',
-            y: 2.6
-        }]
-    }]
-});
-
-
-Highcharts.chart('container3', {
-
-    title: {
-        text: 'U.S Solar Employment Growth by Job Category, 2010-2020'
-    },
-
-    subtitle: {
-        text: 'Source: <a href="https://irecusa.org/programs/solar-jobs-census/" target="_blank">IREC</a>'
-    },
-
-    yAxis: {
-        title: {
-            text: 'Number of Employees'
-        }
-    },
-
-    xAxis: {
         accessibility: {
-            rangeDescription: 'Range: 2010 to 2020'
-        }
-    },
-
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 2010
-        }
-    },
-
-    series: [{
-        name: 'Installation & Developers',
-        data: [43934, 48656, 65165, 81827, 112143, 142383,
-            171533, 165174, 155157, 161454, 154610]
-    }, {
-        name: 'Manufacturing',
-        data: [24916, 37941, 29742, 29851, 32490, 30282,
-            38121, 36885, 33726, 34243, 31050]
-    }, {
-        name: 'Sales & Distribution',
-        data: [11744, 30000, 16005, 19771, 20185, 24377,
-            32147, 30912, 29243, 29213, 25663]
-    }, {
-        name: 'Operations & Maintenance',
-        data: [null, null, null, null, null, null, null,
-            null, 11164, 11218, 10077]
-    }, {
-        name: 'Other',
-        data: [21908, 5548, 8105, 11248, 8989, 11816, 18274,
-            17300, 13053, 11906, 10073]
-    }],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
+            point: {
+                valueSuffix: '%'
             }
-        }]
-    }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: data
 
-});
+    });
+}
 
+document.addEventListener('DOMContentLoaded', function () {
+    extractData();
+    extractData2();
+    extractData3();
+})
 
-function extractData(){
+function extractData() {
     jQuery.ajax({
         type: "POST",
-        url: '../php/connect.php',
-        dataType: 'json',
-        data: {functionname: 'add', arguments: [1, 2]},
-    
-        success: function (obj, textstatus) {
-                      if( !('error' in obj) ) {
-                          yourVariable = obj.result;
-                      }
-                      else {
-                          console.log(obj.error);
-                      }
-                }
+        url: './php/connect.php',
+        data: {
+            dat: "data1macia"
+        },
+        success: function (obj) {
+            m(JSON.parse(obj));
+        }
     });
+}
+
+function extractData2() {
+    jQuery.ajax({
+        type: "POST",
+        url: './php/connect.php',
+        data: {
+            dat: "data2macia"
+        },
+        success: function (obj) {
+            a(JSON.parse(obj));
+        }
+    });
+}
+
+function extractData3() {
+    jQuery.ajax({
+        type: "POST",
+        url: './php/connect.php',
+        data: {
+            dat: "data3macia"
+        },
+        success: function (obj) {
+            
+            console.log(JSON.parse(obj));
+            f(JSON.parse(obj));
+        }
+    });
+}
+
+function a(data) {
+    Highcharts.chart('container2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Who has more money'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Population in 2021: <b>{point.y:.1f} millions</b>'
+        },
+        series: [{
+            name: 'Population',
+            data: data,
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+}
+
+function f(data){
+Highcharts.chart('container3', {
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Historic World Population by Region'
+    },
+    subtitle: {
+      text: 'Source: <a ' +
+        'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
+        'target="_blank">Wikipedia.org</a>'
+    },
+    xAxis: {
+      categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+      title: {
+        text: null
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Population (millions)',
+        align: 'high'
+      },
+      labels: {
+        overflow: 'justify'
+      }
+    },
+    tooltip: {
+      valueSuffix: ' millions'
+    },
+    plotOptions: {
+      bar: {
+        dataLabels: {
+          enabled: true
+        }
+      }
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: -40,
+      y: 80,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor:
+        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+      shadow: true
+    },
+    credits: {
+      enabled: false
+    },
+    series: data
+    
+    /*[{
+      name: 'Year 1990',
+      data: [631, 727, 3202, 721, 26]
+    }, {
+      name: 'Year 2000',
+      data: [814, 841, 3714, 726, 31]
+    }]*/
+  });
 }
