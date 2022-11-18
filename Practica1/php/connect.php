@@ -1,6 +1,6 @@
 <?php
 $pp = mysqli_connect("localhost","root","") or die("adios");
-$db = mysqli_select_db($pp,"ADIIU") or die("hola");
+$db = mysqli_select_db($pp,"adiiu") or die("hola");
 
 $recogida=$_POST['dat'];
 
