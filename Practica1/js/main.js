@@ -1,109 +1,12 @@
-/*(function ($) {
-    "use strict";
-    
-    // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
-            } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
-            }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
-    });
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
-
-
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-
-
-    // Team carousel
-    $(".team-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        margin: 30,
-        dots: true,
-        loop: true,
-        center: true,
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-    
-})(jQuery);*/
-
-//*** MACIA ***
-
 function m(data) {
+    Highcharts.setOptions({
+        chart: {
+            style: {
+                fontFamily: 'helvetica'
+            }
+        }
+    });
+
     Highcharts.chart('container1', {
         chart: {
             plotBackgroundColor: null,
@@ -112,7 +15,10 @@ function m(data) {
             type: 'pie'
         },
         title: {
-            text: 'Who has more money'
+            text: 'Who has more money',
+            style: {
+                fontFamily: 'fantasy'
+            }
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -141,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     extractData();
     extractData2();
     extractData3();
+    extractData4();
 })
 
 function extractData() {
@@ -177,9 +84,24 @@ function extractData3() {
             dat: "data3macia"
         },
         success: function (obj) {
-            
+
             console.log(JSON.parse(obj));
             f(JSON.parse(obj));
+        }
+    });
+}
+
+function extractData4() {
+    jQuery.ajax({
+        type: "POST",
+        url: './php/connect.php',
+        data: {
+            dat: "data4antonio"
+        },
+        success: function (obj) {
+
+            console.log(JSON.parse(obj));
+            bySex(JSON.parse(obj));
         }
     });
 }
@@ -190,10 +112,16 @@ function a(data) {
             type: 'column'
         },
         title: {
-            text: 'Who has more money'
+            text: 'Who has more money',
+            style: {
+                fontFamily: 'fantasy'
+            }
         },
         subtitle: {
-            text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>'
+            text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>',
+            style: {
+                fontFamily: 'serif'
+            }
         },
         xAxis: {
             type: 'category',
@@ -236,68 +164,130 @@ function a(data) {
     });
 }
 
-function f(data){
-Highcharts.chart('container3', {
-    chart: {
-      type: 'bar'
-    },
-    title: {
-      text: 'Historic World Population by Region'
-    },
-    subtitle: {
-      text: 'Source: <a ' +
-        'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-        'target="_blank">Wikipedia.org</a>'
-    },
-    xAxis: {
-      categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-      title: {
-        text: null
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Population (millions)',
-        align: 'high'
-      },
-      labels: {
-        overflow: 'justify'
-      }
-    },
-    tooltip: {
-      valueSuffix: ' millions'
-    },
-    plotOptions: {
-      bar: {
-        dataLabels: {
-          enabled: true
-        }
-      }
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'top',
-      x: -40,
-      y: 80,
-      floating: true,
-      borderWidth: 1,
-      backgroundColor:
-        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-      shadow: true
-    },
-    credits: {
-      enabled: false
-    },
-    series: data
-    
-    /*[{
-      name: 'Year 1990',
-      data: [631, 727, 3202, 721, 26]
-    }, {
-      name: 'Year 2000',
-      data: [814, 841, 3714, 726, 31]
-    }]*/
-  });
+function f(data) {
+    Highcharts.chart('container3', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Historic World Population by Region',
+            style: {
+                fontFamily: 'fantasy'
+            }
+        },
+        subtitle: {
+            text: 'Source: <a ' +
+                'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
+                'target="_blank">Wikipedia.org</a>',
+            style: {
+                fontFamily: 'serif'
+            }
+        },
+        xAxis: {
+            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)',
+                align: 'middle'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor:
+                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: data
+    });
+}
+
+function bySex(data) {
+    Highcharts.chart('container4', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Population wealth by gender',
+            style: {
+                fontFamily: 'fantasy'
+            }
+        },
+        subtitle: {
+            text: 'Source: <a ' +
+                'href="./"' +
+                'target="_blank">dunno</a>',
+            style: {
+                fontFamily: 'serif'
+            }
+        },
+        xAxis: {
+            categories: ['Agender', 'Bigender', 'Female', 'Genderfluid', 'Genderqueer', 'Male', 'Non-binary', 'Polygender'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Money (millions)',
+                align: 'middle'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor:
+                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: data
+    });
 }
