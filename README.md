@@ -16,7 +16,6 @@ Este es un proyecto simple donde se toca el front-end y back-end para mostrar un
 - En la carpeta "DB Creation" se encontrará el código mySQL para la creación de una base de datos, que está compuesta simplemente por una tabla.
 - En "css" el código css utilizado para los estilos de la página.
 - En "js" el código JavaScript para interactuar con el backend "PHP" y presentar los datos en elcódigo html.
-- En "lib" las librería empleadas para el correcto funcionamiento del código JavaScript.
 - En "PHP" todo el código referente a la comunicación con la base de datos y laextracción de los mismos mediante queries mySQL.
 - En "scss" se ubica código css proveniente de la plantilla bootstrap empleada.
 
