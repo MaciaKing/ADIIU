@@ -8,9 +8,11 @@ if($recogida=="data1macia"){
     data1macia();
 }elseif($recogida=="data2macia"){
     data2macia();
-}else{
+}elseif($recogida=="data3macia"){
     //query3
     data3macia();
+} else {
+    data4antonio();
 }
 
 function data1macia() {
@@ -61,7 +63,22 @@ function data3macia() {
         $finalData[]=array(
          "name"=> $data['country'],
          "data"=> array(((int) $data['repetido']))
-        // "repeated"=> (int) $data['repetido']
+        );
+    }
+
+  echo json_encode($finalData);
+}
+
+function data4antonio() {
+    $pp = mysqli_connect("localhost","root","") or die("adios");
+    $db = mysqli_select_db($pp,"ADIIU") or die("hola");
+
+    $query = "SELECT gender, SUM(money) As result FROM people GROUP BY gender";
+    $result = mysqli_query($pp,$query);
+    while ($data=mysqli_fetch_array($result)) {
+        $finalData[]=array(
+         "name"=> $data['gender'],
+         "data"=> array(((int) $data['result']))
         );
     }
 
