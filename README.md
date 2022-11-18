@@ -20,7 +20,7 @@ Este es un proyecto simple donde se toca el front-end y back-end para mostrar un
 - En "PHP" todo el código referente a la comunicación con la base de datos y laextracción de los mismos mediante queries mySQL.
 - En "scss" se ubica código css proveniente de la plantilla bootstrap empleada.
 
-### Dependiencias
+### Dependencias
 
 - Se requiere el uso de XAMPP como emulador de base de datos y distribución de PHP.
 
