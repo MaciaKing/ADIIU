@@ -15,7 +15,7 @@ function m(data) {
             type: 'pie'
         },
         title: {
-            text: 'Who has more money',
+            text: 'Who has more money (Top 5)',
             style: {
                 fontFamily: 'fantasy'
             }
@@ -112,7 +112,7 @@ function a(data) {
             type: 'column'
         },
         title: {
-            text: 'Who has more money',
+            text: 'Who has more money Top 10',
             style: {
                 fontFamily: 'fantasy'
             }
@@ -136,17 +136,17 @@ function a(data) {
         yAxis: {
             min: 0,
             title: {
-                text: 'Population (millions)'
+                text: 'Money in $ (millions)'
             }
         },
         legend: {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Population in 2021: <b>{point.y:.1f} millions</b>'
+            pointFormat: 'Wealth in 2021: <b>{point.y:.1f} millions</b>'
         },
         series: [{
-            name: 'Population',
+            name: 'People',
             data: data,
             dataLabels: {
                 enabled: true,
@@ -170,7 +170,7 @@ function f(data) {
             type: 'bar'
         },
         title: {
-            text: 'Historic World Population by Region',
+            text: 'Historic World Population by Country',
             style: {
                 fontFamily: 'fantasy'
             }
@@ -184,7 +184,7 @@ function f(data) {
             }
         },
         xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            categories: ['Countries'],
             title: {
                 text: null
             }
@@ -239,24 +239,13 @@ function bySex(data) {
                 fontFamily: 'fantasy'
             }
         },
-        subtitle: {
-            text: 'Source: <a ' +
-                'href="./"' +
-                'target="_blank">dunno</a>',
-            style: {
-                fontFamily: 'serif'
-            }
-        },
         xAxis: {
-            categories: ['Agender', 'Bigender', 'Female', 'Genderfluid', 'Genderqueer', 'Male', 'Non-binary', 'Polygender'],
-            title: {
-                text: null
-            }
+            categories: ['Genders']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Money (millions)',
+                text: 'Money in $ (millions)',
                 align: 'middle'
             },
             labels: {

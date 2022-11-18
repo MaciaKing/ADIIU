@@ -19,7 +19,7 @@ function data1macia() {
     $pp = mysqli_connect("localhost","root","") or die("adios");
     $db = mysqli_select_db($pp,"ADIIU") or die("hola");
 
-    $query = "SELECT first_name,money FROM People LIMIT 5";
+    $query = "SELECT first_name,money FROM People ORDER BY money DESC LIMIT 5";
     $result = mysqli_query($pp,$query);
     while ($data=mysqli_fetch_array($result)) {
         $finalData[]=array(
@@ -39,7 +39,7 @@ function data2macia() {
     $pp = mysqli_connect("localhost","root","") or die("adios");
     $db = mysqli_select_db($pp,"ADIIU") or die("hola");
 
-    $query = "SELECT first_name,money FROM People LIMIT 10";
+    $query = "SELECT first_name,money FROM People ORDER BY money DESC LIMIT 10";
     $result = mysqli_query($pp,$query);
     while ($data=mysqli_fetch_array($result)) {
         $finalData[]=array(
